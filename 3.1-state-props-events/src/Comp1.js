@@ -16,11 +16,12 @@ class Comp1 extends React.Component
     //as state will change the render would be fire.
     handleOnChange=(event)=>{this.setState({name:event.target.value})}
 
+    // on change the state value the render() would be re-Render
     render(){
         return(
             <>
             
-
+            
             <label>{this.state.name}</label> <br/>
 
             <input type='text' placeholder='Enter your name' onChange={this.handleOnChange} />
