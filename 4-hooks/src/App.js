@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CompUSestate from './CompUSestate';
+import CompUseEffect from './CompUseEffect';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>Hooks are used with functional components</h1>
+    <a target="_blank" href="https://reactjs.org/docs/hooks-overview.html">Reference</a>
+    <CompUSestate />
+    <CompUseEffect/>
     </div>
   );
 }
