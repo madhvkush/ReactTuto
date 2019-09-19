@@ -5,23 +5,13 @@ interface compProps
     fName:string;
     lName:string;
     age:number;
-    onChange:(event:any)=>any;
+    onChange:(event:React.ChangeEvent<HTMLInputElement>)=>void;
 }
 
 
 
 class CompWithTypeScript extends React.Component<compProps,{}> // 1st is Props Type & 2nd is state Type
-{
-    constructor(props:compProps){
-        //alert("construct in child");
-        super(props);
-        this.state={
-            fullName:props.fName+props.lName,
-            age:props.age
-        }
-    }
-
-    
+{      
 
     render()
     {

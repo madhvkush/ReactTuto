@@ -8,25 +8,26 @@ interface Appstate
   fName:string;
   lName:string;
   age:number;
+  //Note:- Mostly it should have the props of child components
 }
 
 class App extends React.Component<{},Appstate> {
 
   state={fName:"Madhv",lName:"Singh",age:27}
 
-   onChange=(event:any)=>{
-     //alert(event.target.name);
-     switch(event.target.name)
+   onChange=(event:React.ChangeEvent<HTMLInputElement>):void=>{
+     
+     switch(event.target.name) //Note:- currentTarget can be uses in place of target
     {
-      case "fName":{this.setState({fName:event.target.value});} break;
-      case "lName":{this.setState({lName:event.target.value});} break;
-      case "age":{
+      case "fName":this.setState({fName:event.target.value}); break;
+      case "lName":this.setState({lName:event.target.value}); break;
+      case "age":
         if(Number(event.target.value))
-        this.setState({age:event.target.value});
-        else if(event.target.value!="") {alert("Age must be number");
+        this.setState({age: Number(event.target.value)});
+        else if(event.target.value!=="") {alert("Age must be number");
         this.setState({age:0});}
-      } break;
-       default:{this.setState({...this.state})} break;
+       break;
+       default:this.setState({...this.state}); break;
     }
   }
 
