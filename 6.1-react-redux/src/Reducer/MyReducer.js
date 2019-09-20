@@ -14,12 +14,12 @@ const MyReducer=(state=initialStateData,action)=>{
              
             return{
                 ...state,
-                AllData:{DataofComp1:action.newData}
+                AllData:{DataofComp1:action.newData,DataofComp2:state.AllData.DataofComp2}
             };
         case 'ChangeComp2Data': 
             return{
                 ...state,
-                AllData:{DataofComp2:action.newData}
+                AllData:{DataofComp2:action.newData,DataofComp1:state.AllData.DataofComp1}
             };
          default :  return {...state};
 

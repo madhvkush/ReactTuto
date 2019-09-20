@@ -21,10 +21,10 @@ class Comp1 extends React.Component
         return(
             <div style={divStyle}>
                 ==Reducer Data== <br/>
-                 <label>Component-1 Data &nbsp;&nbsp;{this.props.reducerData.DataofComp1}</label> <br/>
-                <label>Component-2 Data &nbsp;&nbsp;{this.props.reducerData.DataofComp2}</label> <br/>
-                Local Data:-
-                <label>{this.state.DataofComp1}</label>
+                <i style={{color:'blue'}}>Component-1 Data</i> &nbsp;&nbsp; <label>{this.props.reducerData.DataofComp1}</label> <br/>
+                <i style={{color:'green'}}>Component-2 Data</i> &nbsp;&nbsp;<label>{this.props.reducerData.DataofComp2}</label> <br/>
+                ==Local Data==<br/>
+                <label style={{color:'blue'}}>{this.state.DataofComp1}</label><br/>
                 <input type="text" placeholder="Write Text on component-1" onChange={this.OnchnageText} /> 
                 <input type="button" value="Change Reducer-Data" onClick={()=>{this.props.changeMydata(this.state.DataofComp1)}} />
             </div>
