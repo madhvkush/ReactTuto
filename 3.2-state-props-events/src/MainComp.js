@@ -30,3 +30,6 @@ class MainComp extends React.Component  {
 }
 
 export default MainComp;
+
+
+// Note:- Most probably the Props-fields of child component should be Given by the state-fields of Parent component

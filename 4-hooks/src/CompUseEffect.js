@@ -16,7 +16,10 @@ const divStyle = {
   const  OnChangeHandler=(event)=>{setName(event.target.value)}
   
   // Use effect will be fire whenEver you set the Name
-  useEffect(()=>{ document.getElementById("divcharacterCount").innerHTML=name.length; });
+  useEffect(()=>{
+       document.getElementById("divcharacterCount").innerHTML=name.length; 
+       //Can do anything. e.g:- call any API 
+    });
 
  return(
     <div style={divStyle}>
