@@ -1,10 +1,12 @@
 import React from 'react';
 
+// Interface for Props 
 interface compProps
 {
-    fName:string;
-    lName:string;
-    age:number;
+    fName:string; // First of string type
+    lName:string; // Last Name of string type
+    age:number; // Age like number
+    // on change event having Input as HTMLInputelement and return type as void
     onChange:(event:React.ChangeEvent<HTMLInputElement>)=>void;
 }
 
