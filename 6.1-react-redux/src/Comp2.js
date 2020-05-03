@@ -1,52 +1,56 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
+import { Update_Comp2 } from "./Reducer/ActionTypes";
 
-// styling for component-1
+// styling for component-2
 const divStyle = {
-    margin: '5px',
-    border: '5px solid green',
-    padding: '10px'
+  margin: "5px",
+  border: "5px solid green",
+  padding: "10px",
+};
+
+class Comp2 extends React.Component {
+  state = { DataOfComp2: "Hello Delhi" };
+
+  handleOnChangeText = (event) => {
+    this.setState({ DataOfComp2: event.target.value });
   };
 
+  handleOnClickUpdateStore = () => {
+    this.props.updateStore(this.state.DataOfComp2);
+  };
 
-class Comp2 extends React.Component
-{
-    state={DataofComp2:"Hello Delhi"};
-
-    OnchnageText=(event)=>{
-        this.setState({DataofComp2:event.target.value});
-    }
-
-    render(){
-        return(
-            <div style={divStyle}>
-               ==Reducer Data== <br/>
-                <i style={{color:'blue'}}>Component-1 Data</i> &nbsp;&nbsp; <label>{this.props.reducerData.DataofComp1}</label> <br/>
-                <i style={{color:'green'}}>Component-2 Data</i> &nbsp;&nbsp;<label>{this.props.reducerData.DataofComp2}</label> <br/>
-                ==Local Data==<br/>
-                <label style={{color:'green'}}>{this.state.DataofComp2}</label><br/>
-                <input type="text" placeholder="Write Text on component-2" onChange={this.OnchnageText} /> 
-                <input type="button" value="Change Reducer-Data" onClick={()=>{ this.props.changeMydata(this.state.DataofComp2)}} />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div style={divStyle}>
+        ==Local Data==
+        <br />
+        <label style={{ color: "green" }}>{this.state.DataOfComp2}</label>
+        <br />
+        <input
+          type="text"
+          placeholder="Write Text on component-2"
+          onChange={this.handleOnChangeText}
+        />
+        <input
+          type="button"
+          value="Update Store"
+          onClick={this.handleOnClickUpdateStore}
+        />
+      </div>
+    );
+  }
 }
+const mapStateToProps = () => {
+  return {};
+};
+// comp2-props  <--> reducer-dispatch   {event of component moves to dispatcher}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateStore: (text) => dispatch({ type: Update_Comp2, newData: text }),
+  };
+};
 
-// comp1-props <--> reducer-state
-const mapstateToProps=state=>{
-return {reducerData:state.AllData}
-}
-
-// comp1-props  <--> reducer-dispatch   {event of component moves to dispatcher}
-const mapDispatchToProps=(dispatch)=>
-{
-return{ changeMydata:(text)=>dispatch({type:"ChangeComp2Data",newData:text}) }
-}
-
-// coonet the state and dispatcher to the Props of Comp2  & export it.
-export default connect(
-    mapstateToProps,
-    mapDispatchToProps  
-)(Comp2);
-
-
+// connect the state and dispatcher to the Props of Comp2  & export it.
+const ConnectedComp2 = connect(mapStateToProps, mapDispatchToProps)(Comp2);
+export default ConnectedComp2;
