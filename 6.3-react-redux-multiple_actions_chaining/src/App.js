@@ -3,6 +3,7 @@ import "./App.css";
 import ConnectedComp1 from "./Comp1";
 import ConnectedComp2 from "./Comp2";
 import ConnectedSharedComponent from "./SharedComp";
+import ConnectedReactGifLoader from "./ReactGifLoader";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <ConnectedComp1 />
       <ConnectedComp2 />
       <ConnectedSharedComponent />
+      <ConnectedReactGifLoader />
     </div>
   );
 }

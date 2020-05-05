@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Update_Comp2 } from "./Reducer/ActionTypes";
+import { Comp2ActionTypes } from "./Reducer/ActionTypes";
 
 // styling for component-2
 const divStyle = {
@@ -47,7 +47,17 @@ const mapStateToProps = () => {
 // comp2-props  <--> reducer-dispatch   {event of component moves to dispatcher}
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateStore: (text) => dispatch({ type: Update_Comp2, newData: text }),
+    updateStore: (text) => {
+      dispatch({ type: Comp2ActionTypes.StartUpdate, newData: text });
+
+      setTimeout(() => {
+        dispatch({ type: Comp2ActionTypes.Update_Comp2, newData: text });
+      }, 2000);
+
+      setTimeout(() => {
+        dispatch({ type: Comp2ActionTypes.FinishUpdate, newData: text });
+      }, 3000);
+    },
   };
 };
 
