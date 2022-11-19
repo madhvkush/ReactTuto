@@ -32,6 +32,10 @@ textarea {
 }
 
 .App> p{
+  color:green;
+ }
+ 
+.App> p> code{
  color:orangered;
 }
 

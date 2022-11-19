@@ -24,6 +24,9 @@ export const MyForm = () => {
   return (
     <>
       <p>
+        install formik :- <code>npm install formik --save</code>
+      </p>
+      <p>
         Use <code>useFormik</code> hook.
       </p>
       <br />
