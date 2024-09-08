@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import { json } from "stream/consumers";
 import * as Yup from "yup";
 
 interface formErrors {
@@ -13,6 +12,9 @@ export const MyForm = () => {
   //state to store submitted data
   const [data, setData] = useState<string>("");
 
+  const divErrorStyle = {
+    color: "red",
+  };
   //create hook object
   const formik = useFormik({
     // initial values are initial state for From-fields
@@ -70,7 +72,7 @@ export const MyForm = () => {
           onBlur={formik.handleBlur}
           value={formik.values.name}
         />
-        {formik.touched.name && <div>{formik.errors.name}</div>}
+        {formik.touched.name && <div style={divErrorStyle}> {formik.errors.name}</div>}
         <label htmlFor="email">Email *</label>
         <input
           type="email"
@@ -80,7 +82,7 @@ export const MyForm = () => {
           onBlur={formik.handleBlur}
           value={formik.values.email}
         />
-        {formik.touched.email && <div>{formik.errors.email}</div>}
+        {formik.touched.email && <div style={divErrorStyle}>{formik.errors.email}</div>}
         <label htmlFor="mobile">Mobile</label>
         <input
           type="text"
