@@ -1,0 +1,7 @@
+ERROR- Error: error:0308010C:digital envelope routines::unsupported
+Solutions-  https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported 
+            https://www.geeksforgeeks.org/how-to-fix-err_ossl_evp_unsupported-in-react-js-application/ 
+
+            You can run following commands - 
+            npm update
+            npm audit fix --force
