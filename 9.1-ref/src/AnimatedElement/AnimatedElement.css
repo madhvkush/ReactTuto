@@ -1,0 +1,7 @@
+.animated {
+  transition: transform 0.5s ease-in-out;
+}
+
+.start-animation {
+  transform: translateX(100px);
+}
