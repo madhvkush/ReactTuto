@@ -3,44 +3,47 @@ import React from "react";
 /**
  * Component Props Model
  */
-interface compProps {
+interface CompProps {
   fName: string; // First of string type
   lName: string; // Last Name of string type
   age: number; // Age like number
   // on change event having Input as HTMLInputelement and return type as void
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
+/**
+ * Component State Model
+ */
+interface CompState {}
 
-class CompWithTypeScript extends React.Component<compProps, {}> {
-  // 1st is Props Type & 2nd is state Type
+class CompWithTypeScript extends React.Component<CompProps, CompState> {
   render() {
+    const { fName, lName, age, onChange } = this.props;
     return (
       <>
         <label>
-          Name:- {this.props.fName + " " + this.props.lName} &nbsp; Age:-{" "}
-          {this.props.age}
+          Name:- {fName + " " + lName} &nbsp; Age:- {age}
         </label>
         <br />
         <input
           type="text"
           name="fName"
           placeholder="First Name"
-          onChange={this.props.onChange}
-          value={this.props.fName}
+          onChange={onChange}
+          value={fName}
         />
         <input
           type="text"
           name="lName"
           placeholder="Last Name"
-          onChange={this.props.onChange}
-          value={this.props.lName}
+          onChange={onChange}
+          value={lName}
         />
         <input
           type="text"
           name="age"
           placeholder="Age (number)"
-          onChange={this.props.onChange}
-          value={this.props.age}
+          onChange={onChange}
+          value={age}
         />
       </>
     );
